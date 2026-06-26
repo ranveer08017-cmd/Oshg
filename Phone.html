@@ -1,0 +1,91 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adobe Store - Premium iPhone 13</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .fade-img { transition: opacity 0.3s ease-in-out; }
+    </style>
+</head>
+<body class="bg-gray-100 font-sans">
+
+    <!-- Header -->
+    <nav class="bg-blue-600 p-4 text-white shadow-lg">
+        <div class="max-w-7xl mx-auto flex items-center justify-between px-4">
+            <div class="text-3xl font-black italic tracking-tighter">ADOBE<span class="font-light text-blue-200">STORE</span></div>
+            <input type="text" placeholder="Search for products, brands and more" class="w-1/2 px-4 py-2 text-black rounded-sm outline-none">
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto mt-6 bg-white p-6 shadow-md rounded-sm">
+        <div id="product-container" class="grid lg:grid-cols-2 gap-10">
+            
+            <!-- Left: Gallery -->
+            <div class="flex flex-col items-center border-r border-gray-200">
+                <img id="main-image" src="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/iphone-13-blue-select-2021?wid=940&hei=1112&fmt=png-alpha&qlt=90" 
+                     class="fade-img w-96 object-contain mb-8" alt="iPhone 13">
+                
+                <div class="flex gap-4">
+                    <button onclick="updateImage('https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/iphone-13-blue-select-2021?wid=940&hei=1112&fmt=png-alpha&qlt=90')" class="w-12 h-12 rounded-full bg-blue-400 border border-gray-300"></button>
+                    <button onclick="updateImage('https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/iphone-13-midnight-select-2021?wid=940&hei=1112&fmt=png-alpha&qlt=90')" class="w-12 h-12 rounded-full bg-black border border-gray-300"></button>
+                    <button onclick="updateImage('https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/iphone-13-pink-select-2021?wid=940&hei=1112&fmt=png-alpha&qlt=90')" class="w-12 h-12 rounded-full bg-pink-300 border border-gray-300"></button>
+                    <button onclick="updateImage('https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/iphone-13-starlight-select-2021?wid=940&hei=1112&fmt=png-alpha&qlt=90')" class="w-12 h-12 rounded-full bg-stone-200 border border-gray-300"></button>
+                </div>
+            </div>
+
+            <!-- Right: Details -->
+            <div>
+                <h1 class="text-3xl font-medium text-gray-800">Apple iPhone 13 (128 GB)</h1>
+                <div class="text-4xl font-bold mt-2">$240.00 <span class="text-lg line-through text-gray-400">$899.00</span></div>
+                
+                <div class="mt-8">
+                    <h2 class="font-bold text-gray-700 mb-4 border-b pb-2">Product Specifications</h2>
+                    <ul class="text-sm text-gray-600 space-y-2 list-disc pl-5">
+                        <li>128 GB ROM | 4 GB RAM</li>
+                        <li>15.49 cm (6.1 inch) Super Retina XDR Display</li>
+                        <li>Advanced Dual-camera system: 12MP Wide and Ultra Wide cameras</li>
+                        <li>Cinematic mode adds shallow depth of field and shifts focus automatically</li>
+                        <li>A15 Bionic chip for lightning-fast performance</li>
+                        <li>Up to 19 hours of video playback</li>
+                        <li>Ceramic Shield front, tougher than any smartphone glass</li>
+                        <li>Industry-leading IP68 water resistance</li>
+                    </ul>
+                </div>
+
+                <div class="mt-10 flex gap-4">
+                    <button onclick="triggerPrank()" class="bg-orange-500 text-white font-bold py-4 px-12 rounded-sm shadow-md hover:bg-orange-600">BUY NOW</button>
+                    <button onclick="triggerPrank()" class="bg-yellow-500 text-white font-bold py-4 px-12 rounded-sm shadow-md hover:bg-yellow-600">PAY WITH EMI</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Prank Section -->
+    <div id="prank-screen" class="hidden fixed inset-0 bg-black z-50 flex flex-col justify-center items-center text-white text-center p-10">
+        <h1 class="text-8xl font-black italic text-red-500">IT'S A PRANK!</h1>
+        <p class="text-2xl mt-4">This website is for entertainment purposes only.</p>
+        <button onclick="location.reload()" class="mt-10 border border-white px-8 py-3 rounded-sm hover:bg-white hover:text-black">GO BACK</button>
+    </div>
+
+    <script>
+        function updateImage(src) {
+            const img = document.getElementById('main-image');
+            img.style.opacity = 0;
+            setTimeout(() => {
+                img.src = src;
+                img.style.opacity = 1;
+            }, 300);
+        }
+        function triggerPrank() {
+            document.getElementById('product-container').classList.add('hidden');
+            document.getElementById('prank-screen').classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
+
+```
